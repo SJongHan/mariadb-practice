@@ -1,25 +1,23 @@
-show tables;
 select version(), current_date, now()
-	from dual;
-    
+  from dual;
+
 -- 수학함수, 사칙 연산도 한다.
 select sign(pi()/4), 1 + 2 * 3 - 4 / 5
-	from dual;
-        
+  from dual;
+
 -- 대소문자 구분이 없다.
-seLect version(), current_DATE 
-	from DUAL;
-    
--- table 생성: ddl
+seLect VERSION(), current_DATE
+  froM DUAL;
+  
+-- table 생성: DDL
 create table pet(
 	name varchar(100),
     owner varchar(20),
     species varchar(20),
     gender char(1),
-	birth date,
+    birth date,
     death date
 );
-
 
 -- scheme 확인
 describe pet;
@@ -27,45 +25,40 @@ desc pet;
 
 -- table 삭제: DDL
 drop table pet;
-show tables;
+show tables; 
 
 -- insert: DML(C)
-insert 
-	into pet
-values('뿡이', '나', 'dog', 'm', '2017-03-15', null);
-
+insert
+  into pet  
+values ('성탄이', '안대혁', 'dog', 'm', '2008-12-15', null); 
 
 -- select: DML(R)
-select * from pet;
+select *
+  from pet;
 
 -- update: DML(U)
-update pet
-	set name='빵이'
-where name='뿡이';
+UPDATE pet
+   SET name = 'sungtanee'
+ WHERE name = '성탄이';
 
+-- delete: DML(D)
+delete
+  from pet
+ where name = 'sungtanee';
+ 
+-- load data
+load data local infile 'c:\\pet.txt' into table pet;
 
+update pet 
+   set death = null
+ where name != 'bowser';
+ 
+-- select 연습
+select name, species
+  from pet
+ where name = 'Bowser';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select name, species, birth
+  from pet
+ where birth >= '1998-01-01'; 
+ 
