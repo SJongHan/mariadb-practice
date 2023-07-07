@@ -12,5 +12,8 @@
 		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
  
+ 	<modules>
+ 		<module>jdbc-practice</module>
+ 	</modules>
 </project>
 
